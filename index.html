@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <style>
+    .div{
+        width:500px;
+        height:500px;
+        background-color: lightskyblue;
+        
+        align-content: space-around;
+        margin-left: 500px;
+        padding-top: 30px;
+        border: black solid 3px;
+        border-radius: 30px;
+    }
+    input{
+        width:350px;
+        height: 25px;
+    }
+    </style>
+    <body>
+        <div class="div" align="center">
+            <h1>QR Code Generator</h1>
+            <h1> AND Scanner</h1>
+
+       Enter URL: <input type="text" id="qr-data" name="Enter URL" onchange="GenerateQR()" >
+       <br>
+       <br>
+        <div id="qrcode">
+            <p align="center" > Scan the QR Code with scanner. </p>
+        </div>
+    </div>
+    
+    </body>
+    <script src="qrcode.min.js"></script>
+    <script>
+        var qrdata = document.getElementById("qr-data");
+        var qrcode = new QRCode (document.getElementById('qrcode'));
+
+        function GenerateQR() {
+            var data = qrdata.value;
+          qrcode.makeCode(data);
+            
+        }
+    </script>
+</html>
